@@ -15,11 +15,11 @@ class TestRegistration:
         driver.find_element(By.NAME, "name").send_keys("Anhelina01")
 
 # Добавь явное ожидание загрузки страницы
-        WebDriverWait(driver, 15).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "App_App__aOmNj")))
+        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "App_App__aOmNj")))
 # Отправка формы
         driver.find_element(By.XPATH, ".//button[text()='Зарегистрироваться']").click()
 
-        WebDriverWait(driver, 15).until(expected_conditions.url_to_be("https://stellarburgers.nomoreparties.site/login"))
+        WebDriverWait(driver, 10).until(expected_conditions.url_to_be("https://stellarburgers.nomoreparties.site/login"))
         assert driver.current_url == "https://stellarburgers.nomoreparties.site/login"
 
     def test_incorrect_password_reg(self, driver):

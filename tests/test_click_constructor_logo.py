@@ -24,7 +24,7 @@ class TestClick:
 
         WebDriverWait(driver, 10).until(EC.url_to_be((f'{Config.URL}/account/profile')))
         # Нажать кнопку logo
-        driver.find_element(By.XPATH, "//*[contains(@class, 'AppHeader_header__logo')]").click()
+        driver.find_element(*Mestolocators.LOGO).click()
         assert driver.current_url == "https://stellarburgers.nomoreparties.site/"
 
     def test_click_onstructor(self, driver):
@@ -43,5 +43,5 @@ class TestClick:
 
         WebDriverWait(driver, 10).until(EC.url_to_be((f'{Config.URL}/account/profile')))
         # Нажать кнопку Конструктор
-        driver.find_element(By.XPATH, ".//li[1]/a/p[text()='Конструктор']").click()
+        driver.find_element(*Mestolocators.CONSTRUCTOR_BUTTON).click()
         assert driver.current_url == "https://stellarburgers.nomoreparties.site/"
