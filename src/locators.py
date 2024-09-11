@@ -16,3 +16,4 @@ class Mestolocators:
     REGISTRATION_BUTTON = By.XPATH, ".//button[text()='Зарегистрироваться']"
     LOGIN_ACCOUNT = By.XPATH, "//button[text()='Войти в аккаунт']"
     LOGIN_EXTRA = By.XPATH, ".//a[text()='Войти']"
+    INCORRECT_PASSWORD = By.XPATH, "//fieldset[3]/div/p[contains(text(), 'Некорректный пароль')]"

@@ -31,6 +31,6 @@ class TestRegistration:
 
         # Проверка сообщения об ошибке
         error_message = WebDriverWait(driver, 10).until(
-            expected_conditions.visibility_of_element_located((By.XPATH, "//fieldset[3]/div/p[contains(text(), 'Некорректный пароль')]"))
+            expected_conditions.visibility_of_element_located((Mestolocators.INCORRECT_PASSWORD))
         )
         assert error_message.is_displayed()
