@@ -3,7 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from src.config import Config
 from src.locators import Mestolocators
 from src.data import get_exist_user_data
-from selenium.webdriver.common.by import By
+
 
 
 class TestLogin:
@@ -12,7 +12,7 @@ class TestLogin:
         driver.get(f'{Config.URL}')
         # Нажать кнопку "Личный Кабинет"
         driver.find_element(*Mestolocators.PERSONAL_ACCOUNT).click()
-        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "App_App__aOmNj")))
+        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((Mestolocators.PAGE_LOAD)))
         email_data, password_data = get_exist_user_data()
         driver.find_element(*Mestolocators.EMAIL_FIELD).send_keys(email_data)
         driver.find_element(*Mestolocators.PASSWORD_FIELD).send_keys(password_data)
@@ -26,9 +26,9 @@ class TestLogin:
     def test_login_button(self,driver):
         driver.get(f'{Config.URL}')
 
-        driver.find_element(By.XPATH, "//button[text()='Войти в аккаунт']").click()
+        driver.find_element(*Mestolocators.LOGIN_ACCOUNT).click()
         email_data, password_data = get_exist_user_data()
-        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "App_App__aOmNj")))
+        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((Mestolocators.PAGE_LOAD)))
         driver.find_element(*Mestolocators.EMAIL_FIELD).send_keys(email_data)
         driver.find_element(*Mestolocators.PASSWORD_FIELD).send_keys(password_data)
         # Нажать кнопку "Войти"
@@ -41,9 +41,9 @@ class TestLogin:
     def test_login_button_password_reset(self, driver):
         driver.get(f'{Config.URL}/forgot-password')
         # Нажать кнопку
-        driver.find_element(By.XPATH, ".//a[text()='Войти']").click()
+        driver.find_element(*Mestolocators.LOGIN_EXTRA).click()
         email_data, password_data = get_exist_user_data()
-        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "App_App__aOmNj")))
+        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((Mestolocators.PAGE_LOAD)))
         driver.find_element(*Mestolocators.EMAIL_FIELD).send_keys(email_data)
         driver.find_element(*Mestolocators.PASSWORD_FIELD).send_keys(password_data)
         # Нажать кнопку "Войти"
@@ -55,9 +55,9 @@ class TestLogin:
     def test_login_button_registration(self, driver):
         driver.get(f'{Config.URL}/register')
         # Нажать кнопку
-        driver.find_element(By.XPATH, ".//a[text()='Войти']").click()
+        driver.find_element(*Mestolocators.LOGIN_EXTRA).click()
         email_data, password_data = get_exist_user_data()
-        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "App_App__aOmNj")))
+        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((Mestolocators.PAGE_LOAD)))
         driver.find_element(*Mestolocators.EMAIL_FIELD).send_keys(email_data)
         driver.find_element(*Mestolocators.PASSWORD_FIELD).send_keys(password_data)
         # Нажать кнопку "Войти"

@@ -12,3 +12,7 @@ class Mestolocators:
     LOGO = By.XPATH, "//*[contains(@class, 'AppHeader_header__logo')]"
     CONSTRUCTOR_BUTTON = By.XPATH, ".//li[1]/a/p[text()='Конструктор']"
     EXIT = By.XPATH, "//button[text()='Выход']"
+    PAGE_LOAD = By.CLASS_NAME, "App_App__aOmNj"
+    REGISTRATION_BUTTON = By.XPATH, ".//button[text()='Зарегистрироваться']"
+    LOGIN_ACCOUNT = By.XPATH, "//button[text()='Войти в аккаунт']"
+    LOGIN_EXTRA = By.XPATH, ".//a[text()='Войти']"

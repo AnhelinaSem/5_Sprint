@@ -15,9 +15,9 @@ class TestRegistration:
         driver.find_element(By.NAME, "name").send_keys("Anhelina01")
 
 # Добавь явное ожидание загрузки страницы
-        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "App_App__aOmNj")))
+        WebDriverWait(driver, 10).until(expected_conditions.visibility_of_element_located((Mestolocators.PAGE_LOAD)))
 # Отправка формы
-        driver.find_element(By.XPATH, ".//button[text()='Зарегистрироваться']").click()
+        driver.find_element(*Mestolocators.REGISTRATION_BUTTON).click()
 
         WebDriverWait(driver, 10).until(expected_conditions.url_to_be("https://stellarburgers.nomoreparties.site/login"))
         assert driver.current_url == "https://stellarburgers.nomoreparties.site/login"

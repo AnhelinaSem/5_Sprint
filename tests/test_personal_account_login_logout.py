@@ -12,7 +12,7 @@ class TestLoginLogout:
         driver.get(f'{Config.URL}')
         # Нажать кнопку "Личный Кабинет"
         driver.find_element(*Mestolocators.PERSONAL_ACCOUNT).click()
-        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "App_App__aOmNj")))
+        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((Mestolocators.PAGE_LOAD)))
         email_data, password_data = get_exist_user_data()
         driver.find_element(*Mestolocators.EMAIL_FIELD).send_keys(email_data)
         driver.find_element(*Mestolocators.PASSWORD_FIELD).send_keys(password_data)
@@ -30,7 +30,7 @@ class TestLoginLogout:
         driver.get(f'{Config.URL}')
         # Нажать кнопку "Личный Кабинет"
         driver.find_element(*Mestolocators.PERSONAL_ACCOUNT).click()
-        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "App_App__aOmNj")))
+        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((Mestolocators.PAGE_LOAD)))
         email_data, password_data = get_exist_user_data()
         driver.find_element(*Mestolocators.EMAIL_FIELD).send_keys(email_data)
         driver.find_element(*Mestolocators.PASSWORD_FIELD).send_keys(password_data)
